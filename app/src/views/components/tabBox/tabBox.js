@@ -29,22 +29,20 @@ class tabBox extends React.Component {
 
   render() {
     return (
-      <div class="app-tabPanels">
-        <ul class="app-tabPanels__tabList">
+      <div className="app-tabPanels">
+        <ul className="app-tabPanels__tabList">
           {data.map((data, index) => 
-            <li key={index} class="app-tabPanels__tabItem" onClick={(e) => this.onClick(e, index)}>
+            <li key={index} className="app-tabPanels__tabItem" onClick={(e) => this.onClick(e, index)}>
               {data.tabName}
             </li>
           )}
         </ul>
-        <div class="app-tabPanels__panelList">
-          {data.map((data, index) => {
-            return (
-              <div class={index === this.state.selected ? 'app-tabPanels__panelItem--active' : 'app-tabPanels__panelItem'}>
-                {data.tabContents}
-              </div>
-            );
-          })}
+        <div className="app-tabPanels__panelList">
+          {data.map((data, index) => 
+            <div key={index} className={index === this.state.selected ? 'app-tabPanels__panelItem--active' : 'app-tabPanels__panelItem'}>
+              {data.tabContents}
+            </div>
+          )}
         </div>
       </div>
     );
