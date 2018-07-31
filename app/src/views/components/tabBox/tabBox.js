@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-// import './tabPanels.css';
+import './tabBox.css';
 
 const data = [
   {
@@ -22,10 +22,10 @@ class tabBox extends PureComponent {
       <div class="app-tabPanels">
         <ul class="app-tabPanels__tabList">
           {data.map((data) => {
-            return <li class="app-tabPanels__tabItem">{data.text}</li>;
+            return <li class="app-tabPanels__tabItem">{data.tabName}</li>;
           })}
         </ul>
-        <div class="app-tabPanels__panels">
+        <div class="app-tabPanels__panelList">
           {data.map((data) => {
             return <div class="app-tabPanels__panelItem">{data.tabContents}</div>;
           })}

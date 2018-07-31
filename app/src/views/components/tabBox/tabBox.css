@@ -1,0 +1,22 @@
+.app-tabPanels {
+}
+
+.app-tabPanels__tabList {
+}
+
+.app-tabPanels__tabItem {
+  display: inline-block;
+  padding: 5px;
+  margin: 0 0 0 2px;
+  background: #66a;
+  border-radius: 5px;
+}
+
+.app-tabPanels__panelList {
+}
+.app-tabPanels__panelItem {
+  display: none;
+}
+.app-tabPanels__panelItem--active {
+  display: block;
+}
