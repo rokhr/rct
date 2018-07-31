@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import './item.css';
 
 class Items extends PureComponent {
   constructor(props) {
@@ -10,7 +11,7 @@ class Items extends PureComponent {
       <div class="app-item">
         <p class="app-item__title">タイトル: {this.props.title}</p>
         <p class="app-item__description">
-          説明:{this.props.description}
+          説明: {this.props.description}
         </p>
       </div>
     );

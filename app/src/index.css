@@ -1,3 +1,17 @@
 body {
   background-color:#000;
+  color: #fff;
+}
+
+// reset
+p,
+div,
+il{
+  padding: 0;
+  margin: 0;
+}
+
+
+a {
+  color: #999900;
 }
