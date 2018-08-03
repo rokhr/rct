@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import PageIndex from "./pages/index";
 import PageIndex2 from "./pages/index2";
+import PageIndexForm from "./pages/index_form";
 
 class App extends PureComponent {
   // <Route path="/stuff" component={Stuff}/>
@@ -18,10 +19,12 @@ class App extends PureComponent {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/index2">index2</Link></li>
+          <li><Link to="/index_form">indexForm</Link></li>
         </ul>
         <div className="content">
             <Route exact path={process.env.PUBLIC_URL + "/" } component={PageIndex}/>
             <Route path="/index2" component={PageIndex2}/>
+            <Route path="/index_form" component={PageIndexForm}/>
         </div>
       </div>
       </BrowserRouter>
