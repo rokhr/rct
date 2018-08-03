@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import './item.css';
 
 class Items extends PureComponent {
   constructor(props) {

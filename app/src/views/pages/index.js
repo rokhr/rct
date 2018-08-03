@@ -1,25 +1,13 @@
 import React, { PureComponent } from "react";
-import Item from "../components/item";
-import items from "../../data/items";
+import Items from "../components/items";
+import itemData from "../../data/items";
 
 class Page extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
   render() {
-    const Items = items.map((item) => (
-      <Item
-        key={item.title}
-        {...item}
-      />
-    ));
 
     return (
       <div>
-        {Items}
+        <Items data={itemData} />
       </div>
     );
   }
