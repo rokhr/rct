@@ -1,9 +1,4 @@
-body {
-  background-color:#000;
-  color: #fff;
-}
-
-/* reset */
+/* ---- reset ---- */
 p,
 div,
 ul,
@@ -14,5 +9,16 @@ il{
 
 
 a {
-  color: #999900;
+  color: #33b;
+}
+
+
+/* ---- global ---- */
+body {
+  background-color:#fff;
+  color: #333;
+}
+
+#root {
+  margin: 10px;
 }
