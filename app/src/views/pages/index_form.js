@@ -48,6 +48,20 @@ class Page extends PureComponent {
     });
   }
 
+  onClickDelete(e, id) {
+    const currentItems = this.state.items;
+    // copy
+    const newItems = currentItems.slice();
+    // push copied
+    this.setState({
+      count: this.state.count + 1
+    });
+    newItems.push(Object.assign(this.state.formData, { id: this.state.count }));
+    this.setState({
+      items: newItems,
+    });
+  }
+
   render() {
     const formData = this.state.formData;
 
@@ -63,7 +77,7 @@ class Page extends PureComponent {
         <p>
           ------------
         </p>
-        <Items data={this.state.items} />
+        <Items data={this.state.items} isEditable={true} onClickDelete={(e, id) => this.onClickDelete(e, id)} />
       </React.Fragment>
     );
   }

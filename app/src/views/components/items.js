@@ -8,6 +8,8 @@ const Items = (props) => {
       {props.data.map((item) => (
         <Item
           key={item.title}
+          isEditable={props.isEditable}
+          onClickDelete={props.onClickDelete}
           {...item}
         />
       ))}

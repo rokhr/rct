@@ -11,7 +11,7 @@ class Items extends PureComponent {
         </p>
         {(() => {
           this.props.isEditable ?
-            <button onClick={this.props.onClickDelete}>delete</button> : ''
+            <button onClick={(e) => this.props.onClickDelete(e, this.props.id)}>delete</button> : ''
         })()}
       </div>
     );
