@@ -13,5 +13,6 @@ const Items = (props) => {
       ))}
     </React.Fragment>
   );
-}
+};
+
 export default Items;

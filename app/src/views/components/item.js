@@ -2,10 +2,6 @@ import { nl2br } from "../../util/html";
 import React, { PureComponent } from "react";
 
 class Items extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="app-item">
@@ -13,6 +9,10 @@ class Items extends PureComponent {
         <p className="app-item__description">
           説明: {typeof this.props.description === 'string' ? nl2br(this.props.description) : ''}
         </p>
+        {(() => {
+          this.props.isEditable ?
+            <button onClick={this.props.onClickDelete}>delete</button> : ''
+        })()}
       </div>
     );
   }
