@@ -1,14 +1,14 @@
 import React, { PureComponent } from "react";
-import { nl2br } from "../../util/html";
 import Items from "../components/items";
-
 
 class Page extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
+      count: 0,
       formData: {
-
+        title: '',
+        description: ''
       },
       items: [
       ]
@@ -34,34 +34,37 @@ class Page extends PureComponent {
     // copy
     const newItems = currentItems.slice();
     // push copied
-    newItems.push(Object.assign(this.state.formData));
+    this.setState({
+      count: this.state.count + 1
+    });
+    newItems.push(Object.assign(this.state.formData, { id: this.state.count }));
     this.setState({
       items: newItems,
-      formData: {} // リセットする
+      // 入力欄はリセットする
+      formData: {
+        title: '',
+        description: ''
+      }
     });
   }
 
   render() {
+    const formData = this.state.formData;
+
     return (
-      <div>
+      <React.Fragment>
         <p>
-          <input type="text" name="title" onChange={(e) => this.onChange(e)} />
+          <input type="text" name="title" value={formData.title} onChange={(e) => this.onChange(e)} />
         </p>
         <p>
-          <textArea type="text" name="description" onChange={(e) => this.onChange(e)} />
+          <textarea name="description" value={formData.description} onChange={(e) => this.onChange(e)} />
         </p>
         <button onClick={(e) => this.onClickButton(e)}>Add Item</button>
         <p>
-          { this.state.formData.title }
-        </p>
-        <p>
-          {
-            typeof this.state.formData.description === 'string' ?
-              nl2br(this.state.formData.description) : ''
-          }
+          ------------
         </p>
         <Items data={this.state.items} />
-      </div>
+      </React.Fragment>
     );
   }
 }
