@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
-import TabItem from "./tabItem";
-import TabPanelItem from "./tabPanelItem";
+import TabItems from "./tabItems";
+import TabPanels from "./tabPanels";
 import './tabBox.css';
 
 const data = [
@@ -32,16 +32,8 @@ class tabBox extends React.Component {
   render() {
     return (
       <div className="app-tabPanels">
-        <ul className="app-tabPanels__tabList">
-          {data.map((data, index) =>
-            <TabItem onClick={ this.onClick.bind(this) } index={index} tabName={data.tabName}  />
-          )}
-        </ul>
-        <div className="app-tabPanels__panelList">
-          {data.map((data, index) =>
-            <TabPanelItem index={index} tabContents={data.tabContents} selected={this.state.selected} />
-          )}
-        </div>
+        <TabItems data={data} onClick={ this.onClick.bind(this) } />
+        <TabPanels data={data} selected={this.state.selected} />
       </div>
     );
   }

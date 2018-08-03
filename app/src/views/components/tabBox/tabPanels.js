@@ -1,26 +1,21 @@
 import React, { PureComponent } from "react";
-import './tabPanels.css';
+import TabPanelItem from "./tabPanelItem";
 
-const 
-
-class Items extends PureComponent {
+class TabPanels extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="app-tabPanels">
-        <ul className="app-tabPanels__tabList">
-          <li className="app-tabPanels__tabItem">タブ１</li>
-          <li className="app-tabPanels__tabItem">タブ２</li>
-        </ul>
-        <div className="app-tabPanels__panels">
-          <div className="app-tabPanels__panelItem">内容１</div>
-          <div className="app-tabPanels__panelItem">内容２</div>
+      <React.Fragment>
+        <div className="app-tabPanels__panelList">
+          {this.props.data.map((data, index) =>
+            <TabPanelItem index={index} tabContents={data.tabContents} selected={this.props.selected} />
+          )}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
-export default Items;
+export default TabPanels;
