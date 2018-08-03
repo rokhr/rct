@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import Item from "../components/item";
 import items from "../../data/items";
 
-class App extends PureComponent {
+class Page extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,4 +24,4 @@ class App extends PureComponent {
     );
   }
 }
-export default App;
+export default Page;

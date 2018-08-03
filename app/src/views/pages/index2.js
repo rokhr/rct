@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import TabBox from "../components/tabBox/tabBox";
 
-class App extends PureComponent {
+class Page extends PureComponent {
   render() {
     return (
       <div>
@@ -9,12 +9,5 @@ class App extends PureComponent {
       </div>
     );
   }
-  // render() {
-  //   return ( 
-  //     <div>
-  //       aaa
-  //     </div>
-  //   );
-  // }
 }
-export default App;
+export default Page;
