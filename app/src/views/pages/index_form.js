@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Items from "../components/items";
+import { reduceOne } from "../../util/array";
 
 class Page extends PureComponent {
   constructor(props) {
@@ -23,7 +24,6 @@ class Page extends PureComponent {
         [element.name]: element.value
       }
     });
-    console.log('this.state', this.state);
   }
 
   onClickButton(e) {
@@ -50,15 +50,11 @@ class Page extends PureComponent {
 
   onClickDelete(e, id) {
     const currentItems = this.state.items;
-    // copy
-    const newItems = currentItems.slice();
-    // push copied
+
     this.setState({
-      count: this.state.count + 1
-    });
-    newItems.push(Object.assign(this.state.formData, { id: this.state.count }));
-    this.setState({
-      items: newItems,
+      items: reduceOne(this.state.items, (value) => {
+        return value.id === id;
+      })
     });
   }
 
