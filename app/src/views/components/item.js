@@ -1,7 +1,7 @@
 import { nl2br } from "../../util/html";
 import React, { PureComponent } from "react";
 
-class Items extends PureComponent {
+class Items extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,21 @@ class Items extends PureComponent {
     });
   }
 
+  shouldComponentUpdate (nextProps, nextState) {
+    const diffPropsProperties = [
+      'title',
+      'description',
+      'isEditable',
+      'isEditting'
+    ];
+
+    return diffPropsProperties.some((name, index) => {
+      return nextProps[name] !== this.props[name]
+    }) || nextState !== this.state;
+  }
+
   render() {
+    console.log('render_item', this.props.id);
     return (
       <div className="app-item">
       {(() => {
@@ -42,7 +56,7 @@ class Items extends PureComponent {
           :
           <React.Fragment>
             <p>
-              <input type="text" name="title" defaultValue={this.state. editData.title} onChange={(e) => this.onChangeTitle(e)} />
+              <input type="text" name="title" defaultValue={this.state.editData.title} onChange={(e) => this.onChangeTitle(e)} />
             </p>
             <p>
               <textarea name="description" defaultValue={this.state.editData.description} onChange={(e) => this.onChangeDescription(e)} />
