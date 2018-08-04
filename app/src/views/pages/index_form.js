@@ -33,10 +33,8 @@ class Page extends PureComponent {
     const currentItems = this.state.items;
     // copy
     const newItems = getCopied(currentItems);
-    // push copied
 
     const nextCount = this.state.count + 1;
-    console.log(currentItems, newItems)
     newItems.push(Object.assign(this.state.formData, {
       id: this.state.count
     }));
@@ -104,10 +102,10 @@ class Page extends PureComponent {
     return (
       <React.Fragment>
         <p>
-          <input type="text" name="title" value={formData.title} onChange={(e) => this.onChange(e)} />
+          <input type="text" name="title" onChange={(e) => this.onChange(e)} />
         </p>
         <p>
-          <textarea name="description" value={formData.description} onChange={(e) => this.onChange(e)} />
+          <textarea name="description" onChange={(e) => this.onChange(e)} />
         </p>
         <button onClick={(e) => this.onClickButton(e)}>Add Item</button>
         <p>

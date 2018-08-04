@@ -42,10 +42,10 @@ class Items extends PureComponent {
           :
           <React.Fragment>
             <p>
-              <input type="text" name="title" value={this.state. editData.title} onChange={(e) => this.onChangeTitle(e)} />
+              <input type="text" name="title" defaultValue={this.state. editData.title} onChange={(e) => this.onChangeTitle(e)} />
             </p>
             <p>
-              <textarea name="description" value={this.state.editData.description} onChange={(e) => this.onChangeDescription(e)} />
+              <textarea name="description" defaultValue={this.state.editData.description} onChange={(e) => this.onChangeDescription(e)} />
             </p>
             <button onClick={(e) => this.props.edit.onClickEndEdit(e, this.props.id, this.state.editData)}>編集完了</button>
           </React.Fragment>
