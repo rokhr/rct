@@ -84,7 +84,10 @@ class Page extends PureComponent {
     const newItems = getCopied(currentItems);
     const targetId = findIdOne(newItems, value => value.id === id);
     // push copied
-    newItems[targetId] = values;
+    newItems[targetId] = {
+      ...values,
+      isEditting: false
+    };
 
     this.setState({
       items: newItems,
