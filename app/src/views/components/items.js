@@ -7,9 +7,11 @@ const Items = (props) => {
     <React.Fragment>
       {props.data.map((item) => (
         <Item
-          key={item.title}
+          key={item.id}
           isEditable={props.isEditable}
           onClickDelete={props.onClickDelete}
+          onClickEdit={props.onClickEdit}
+          edit={props.edit}
           {...item}
         />
       ))}
