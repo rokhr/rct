@@ -102,10 +102,10 @@ class Page extends PureComponent {
     return (
       <React.Fragment>
         <p>
-          <input type="text" name="title" onChange={(e) => this.onChange(e)} />
+          <input type="text" name="title" onChange={(e) => this.onChange(e)} value={this.state.formData.title} />
         </p>
         <p>
-          <textarea name="description" onChange={(e) => this.onChange(e)} />
+          <textarea name="description" onChange={(e) => this.onChange(e)} value={this.state.formData.description} />
         </p>
         <button onClick={(e) => this.onClickButton(e)}>Add Item</button>
         <p>
