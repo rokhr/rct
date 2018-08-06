@@ -1,10 +1,6 @@
-import React, { PureComponent } from "react";
+import React from "react";
 
 class TabItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <React.Fragment>

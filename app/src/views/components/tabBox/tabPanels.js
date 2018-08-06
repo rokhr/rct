@@ -1,11 +1,7 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import TabPanelItem from "./tabPanelItem";
 
 class TabPanels extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <React.Fragment>

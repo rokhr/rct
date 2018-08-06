@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import TabItems from "./tabItems";
 import TabPanels from "./tabPanels";
 import './tabBox.css';

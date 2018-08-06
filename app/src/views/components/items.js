@@ -5,9 +5,9 @@ import './items.css';
 const Items = (props) => {
   return (
     <React.Fragment>
-      {props.data.map((item) => (
+      {props.data.map((item, index) => (
         <Item
-          key={item.id}
+          key={`${typeof item.id !== 'undefined' ? item.id : index }`}
           isEditable={props.isEditable}
           onClickDelete={props.onClickDelete}
           onClickEdit={props.onClickEdit}

@@ -1,15 +1,15 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import pageArray from "./pages/02_array";
 import pageTab from "./pages/03_tab";
 import pageMemo from "./pages/04_memo";
 
-class App extends PureComponent {
+class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <React.Fragment>
-          <ul>
+          <ul className="pageNav">
             <li><Link to="/">課題項目2 配列データ表示</Link></li>
             <li><Link to="/03_tab">課題項目3 タブ</Link></li>
             <li><Link to="/04_memo">課題項目4 メモ</Link></li>

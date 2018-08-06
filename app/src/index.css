@@ -47,3 +47,12 @@ body {
   vertical-align: top;
   padding: 0 5px;
 }
+
+.pageNav {
+  padding: 5px;
+  background: #ffa;
+}
+
+.pageNav li::before {
+  content: "・";
+}

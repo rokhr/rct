@@ -26,7 +26,6 @@ class Page extends PureComponent {
   }
 
   onClickButton(e) {
-    const element = e.currentTarget;
     e.preventDefault();
 
     const currentItems = this.state.items;
@@ -49,8 +48,6 @@ class Page extends PureComponent {
   }
 
   onClickDelete(e, id) {
-    const currentItems = this.state.items;
-
     this.setState({
       items: reduceOne(this.state.items, (value) => {
         return value.id === id;
@@ -73,7 +70,6 @@ class Page extends PureComponent {
   }
 
   onClickEndEdit(e, id, values) {
-    const element = e.currentTarget;
     e.preventDefault();
 
     const currentItems = this.state.items;
@@ -92,7 +88,6 @@ class Page extends PureComponent {
   }
 
   render() {
-    const formData = this.state.formData;
     const edit = {
       onClickEdit: (e, id) => this.onClickEdit(e, id),
       onClickEndEdit: (e, id, values) => this.onClickEndEdit(e, id, values)
@@ -100,24 +95,21 @@ class Page extends PureComponent {
 
     return (
       <React.Fragment>
-        <div class="additem">
-          <p>
+        <div className="additem">
+          <div>
             <span>タイトル</span>
             <div>
               <input type="text" name="title" onChange={(e) => this.onChange(e)} value={this.state.formData.title} />
             </div>
-          </p>
-          <p>
+          </div>
+          <div>
             <span>内容</span>
             <div>
               <textarea name="description" onChange={(e) => this.onChange(e)} value={this.state.formData.description} />
             </div>
-          </p>
+          </div>
           <button onClick={(e) => this.onClickButton(e)}>新規追加</button>
         </div>
-        <p>
-          ------------
-        </p>
         <Items data={this.state.items} isEditable={true} onClickDelete={(e, id) => this.onClickDelete(e, id)} edit={edit} />
       </React.Fragment>
     );

@@ -4,7 +4,6 @@ import itemData from "../../data/items";
 
 class Page extends PureComponent {
   render() {
-
     return (
       <div>
         <Items data={itemData} />

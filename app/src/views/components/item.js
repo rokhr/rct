@@ -1,5 +1,5 @@
-import { nl2br, Br } from "../../util/html";
-import React, { PureComponent } from "react";
+import { nl2br } from "../../util/html";
+import React from "react";
 
 class Items extends React.Component {
   constructor(props) {
@@ -55,18 +55,18 @@ class Items extends React.Component {
           </React.Fragment>
           :
           <React.Fragment>
-            <p>
+            <div>
               <span>タイトル</span>
               <div>
                 <input type="text" name="title" defaultValue={this.state.editData.title} onChange={(e) => this.onChangeTitle(e)} />
               </div>
-            </p>
-            <p>
+            </div>
+            <div>
               <span>内容</span>
               <div>
                 <textarea name="description" defaultValue={this.state.editData.description} onChange={(e) => this.onChangeDescription(e)} />
               </div>
-            </p>
+            </div>
             <button onClick={(e) => this.props.edit.onClickEndEdit(e, this.props.id, this.state.editData)}>編集完了</button>
           </React.Fragment>
         })()}
