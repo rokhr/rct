@@ -12,6 +12,15 @@ const nl2br = (text) => {
   });
 }
 
+const Br = () => {
+    return (
+        <React.Fragment>
+            <span dangerouslySetInnerHTML={{__html: '<br>'}} />
+        </React.Fragment>
+    );
+}
+
 export {
-  nl2br
+  nl2br,
+  Br
 }

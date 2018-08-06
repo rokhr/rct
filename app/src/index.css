@@ -7,6 +7,10 @@ il{
   margin: 0;
 }
 
+li {
+  list-style: none;
+}
+
 
 a {
   color: #33b;
@@ -19,6 +23,27 @@ body {
   color: #333;
 }
 
+.content{
+  margin: 20px 0 0 0;
+}
+
 #root {
-  margin: 10px;
+  padding: 10px;
+  background: #666;
+}
+
+.additem {
+  background: #fc9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.additem > p {
+  display: table-row;
+}
+
+.additem > p > * {
+  display: table-cell;
+  vertical-align: top;
+  padding: 0 5px;
 }

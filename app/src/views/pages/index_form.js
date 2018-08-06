@@ -11,8 +11,7 @@ class Page extends PureComponent {
         title: '',
         description: ''
       },
-      items: [
-      ]
+      items: JSON.parse(localStorage.getItem('items'))
     };
   }
 
@@ -101,13 +100,21 @@ class Page extends PureComponent {
 
     return (
       <React.Fragment>
-        <p>
-          <input type="text" name="title" onChange={(e) => this.onChange(e)} value={this.state.formData.title} />
-        </p>
-        <p>
-          <textarea name="description" onChange={(e) => this.onChange(e)} value={this.state.formData.description} />
-        </p>
-        <button onClick={(e) => this.onClickButton(e)}>Add Item</button>
+        <div class="additem">
+          <p>
+            <span>タイトル</span>
+            <div>
+              <input type="text" name="title" onChange={(e) => this.onChange(e)} value={this.state.formData.title} />
+            </div>
+          </p>
+          <p>
+            <span>内容</span>
+            <div>
+              <textarea name="description" onChange={(e) => this.onChange(e)} value={this.state.formData.description} />
+            </div>
+          </p>
+          <button onClick={(e) => this.onClickButton(e)}>新規追加</button>
+        </div>
         <p>
           ------------
         </p>

@@ -32,7 +32,7 @@ class tabBox extends React.Component {
   render() {
     return (
       <div className="app-tabPanels">
-        <TabItems data={data} onClick={ this.onClick.bind(this) } />
+        <TabItems data={data} onClick={ this.onClick.bind(this) } selected={this.state.selected} />
         <TabPanels data={data} selected={this.state.selected} />
       </div>
     );

@@ -8,7 +8,7 @@ class TabItem extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <li key={this.props.index} className="app-tabPanels__tabItem" onClick={(e) => this.props.onClick(e, this.props.index)}>
+        <li key={this.props.index} className={`${this.props.index === this.props.selected ? 'app-tabPanels__tabItem is-active':'app-tabPanels__tabItem'}`} onClick={(e) => this.props.onClick(e, this.props.index)}>
           {this.props.tabName}
         </li>
       </React.Fragment>

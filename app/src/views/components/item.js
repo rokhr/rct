@@ -1,4 +1,4 @@
-import { nl2br } from "../../util/html";
+import { nl2br, Br } from "../../util/html";
 import React, { PureComponent } from "react";
 
 class Items extends React.Component {
@@ -44,22 +44,28 @@ class Items extends React.Component {
   render() {
     console.log('render_item', this.props.id);
     return (
-      <div className="app-item">
+      <div className={`${!this.props.isEditting ? 'app-item' : 'additem'}`}>
       {(() => {
         return !this.props.isEditting ?
           <React.Fragment>
-            <p className="app-item__title">タイトル: {this.props.title}</p>
+            <p className="app-item__title">☆ {this.props.title}</p>
             <p className="app-item__description">
-              説明: {typeof this.props.description === 'string' ? nl2br(this.props.description) : ''}
+              {typeof this.props.description === 'string' ? nl2br(this.props.description) : ''}
             </p>
           </React.Fragment>
           :
           <React.Fragment>
             <p>
-              <input type="text" name="title" defaultValue={this.state.editData.title} onChange={(e) => this.onChangeTitle(e)} />
+              <span>タイトル</span>
+              <div>
+                <input type="text" name="title" defaultValue={this.state.editData.title} onChange={(e) => this.onChangeTitle(e)} />
+              </div>
             </p>
             <p>
-              <textarea name="description" defaultValue={this.state.editData.description} onChange={(e) => this.onChangeDescription(e)} />
+              <span>内容</span>
+              <div>
+                <textarea name="description" defaultValue={this.state.editData.description} onChange={(e) => this.onChangeDescription(e)} />
+              </div>
             </p>
             <button onClick={(e) => this.props.edit.onClickEndEdit(e, this.props.id, this.state.editData)}>編集完了</button>
           </React.Fragment>

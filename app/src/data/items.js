@@ -1,4 +1,4 @@
-const items =[
+const items = [
   {
     title: 'itemA',
     description: 'まずはAのアイテムです。',

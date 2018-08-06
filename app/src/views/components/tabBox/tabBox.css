@@ -2,23 +2,38 @@
 }
 
 .app-tabPanels__tabList {
+  background: #f95;
+  padding: 3px 3px 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .app-tabPanels__tabItem {
   display: inline-block;
   padding: 5px;
-  margin: 0 0 0 2px;
-  background: #eef;
-  border-radius: 5px;
+  margin: 0 0 0 5px;
+  background: #c95;
+  border: 1px solid #fff; 
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+}
+
+.app-tabPanels__tabItem.is-active {
+  background-color: #fff;
+  color: #333;
 }
 
 .app-tabPanels__panelList {
+  margin: 0 0 10px;
+  padding: 10px;
+  background: #fdb;
+  border-radius: 0 0 5px 5px;
+  min-height: 200px;
 }
 
 .app-tabPanels__panelItem {
   display: none;
 }
 
-.app-tabPanels__panelItem--active {
+.app-tabPanels__panelItem.is-active {
   display: block;
 }
