@@ -1,32 +1,25 @@
 import React, { PureComponent } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Link,
-} from "react-router-dom";
-import PageIndex from "./pages/index";
-import PageIndex2 from "./pages/index2";
-import PageIndexForm from "./pages/index_form";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import pageArray from "./pages/02_array";
+import pageTab from "./pages/03_tab";
+import pageMemo from "./pages/04_memo";
 
 class App extends PureComponent {
-  // <Route path="/stuff" component={Stuff}/>
-  // <Route path="/contact" component={Contact}/>
-
   render() {
     return (
       <BrowserRouter>
-      <div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/index2">index2</Link></li>
-          <li><Link to="/index_form">indexForm</Link></li>
-        </ul>
-        <div className="content">
-            <Route exact path={process.env.PUBLIC_URL + "/" } component={PageIndex}/>
-            <Route path="/index2" component={PageIndex2}/>
-            <Route path="/index_form" component={PageIndexForm}/>
-        </div>
-      </div>
+        <React.Fragment>
+          <ul>
+            <li><Link to="/">課題項目2 配列データ表示</Link></li>
+            <li><Link to="/03_tab">課題項目3 タブ</Link></li>
+            <li><Link to="/04_memo">課題項目4 メモ</Link></li>
+          </ul>
+          <div className="content">
+              <Route exact path={process.env.PUBLIC_URL + "/" } component={pageArray}/>
+              <Route path="/03_tab" component={pageTab}/>
+              <Route path="/04_memo" component={pageMemo}/>
+          </div>
+        </React.Fragment>
       </BrowserRouter>
     );
   }
