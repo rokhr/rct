@@ -32,7 +32,6 @@ class Items extends React.Component {
     const diffPropsProperties = [
       'title',
       'description',
-      'isEditable',
       'isEditting'
     ];
 
@@ -67,14 +66,14 @@ class Items extends React.Component {
                 <textarea name="description" defaultValue={this.state.editData.description} onChange={(e) => this.onChangeDescription(e)} />
               </div>
             </div>
-            <button onClick={(e) => this.props.edit.onClickEndEdit(e, this.props.id, this.state.editData)}>編集完了</button>
+            <button onClick={(e) => this.props.itemsFunctions.setItem(this.props.id, this.state.editData)}>編集完了</button>
           </React.Fragment>
         })()}
         {(() => {
           return this.props.isEditable ?
             <React.Fragment>
-              {(() => !this.props.isEditting ? <button onClick={(e) => this.props.edit.onClickEdit(e, this.props.id)}>編集</button> : '')()}
-              <button onClick={(e) => this.props.onClickDelete(e, this.props.id)}>削除</button>
+              {(() => !this.props.isEditting ? <button onClick={(e) => this.props.itemsFunctions.startEdit(this.props.id)}>編集</button> : '')()}
+              <button onClick={() => this.props.itemsFunctions.delete(this.props.id)}>削除</button>
             </React.Fragment> : ''
         })()}
       </div>

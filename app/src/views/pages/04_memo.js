@@ -6,12 +6,18 @@ class Page extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      count: 0,
+      count: JSON.parse(localStorage.getItem('count')),
       formData: {
         title: '',
         description: ''
       },
       items: JSON.parse(localStorage.getItem('items'))
+    };
+
+    this.itemsFunctions = {
+      delete: (id) => this.deleteItem(id),
+      startEdit: (id) => this.startEditItem(id),
+      setItem: (id, values) => this.setItem(id, values)
     };
   }
 
@@ -47,7 +53,7 @@ class Page extends PureComponent {
     });
   }
 
-  onClickDelete(e, id) {
+  deleteItem(id) {
     this.setState({
       items: reduceOne(this.state.items, (value) => {
         return value.id === id;
@@ -55,7 +61,7 @@ class Page extends PureComponent {
     });
   }
 
-  onClickEdit(e, id) {
+  startEditItem(id) {
     const currentItems = this.state.items;
     const newItems = getCopied(currentItems);
 
@@ -69,9 +75,7 @@ class Page extends PureComponent {
     });
   }
 
-  onClickEndEdit(e, id, values) {
-    e.preventDefault();
-
+  setItem(id, values) {
     const currentItems = this.state.items;
     // copy
     const newItems = getCopied(currentItems);
@@ -88,11 +92,6 @@ class Page extends PureComponent {
   }
 
   render() {
-    const edit = {
-      onClickEdit: (e, id) => this.onClickEdit(e, id),
-      onClickEndEdit: (e, id, values) => this.onClickEndEdit(e, id, values)
-    }
-
     return (
       <React.Fragment>
         <div className="additem">
@@ -110,7 +109,7 @@ class Page extends PureComponent {
           </div>
           <button onClick={(e) => this.onClickButton(e)}>新規追加</button>
         </div>
-        <Items data={this.state.items} isEditable={true} onClickDelete={(e, id) => this.onClickDelete(e, id)} edit={edit} />
+        <Items data={this.state.items} isEditable={true} itemsFunctions={this.itemsFunctions} />
       </React.Fragment>
     );
   }

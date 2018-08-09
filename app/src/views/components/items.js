@@ -9,9 +9,7 @@ const Items = (props) => {
         <Item
           key={`${typeof item.id !== 'undefined' ? item.id : index }`}
           isEditable={props.isEditable}
-          onClickDelete={props.onClickDelete}
-          onClickEdit={props.onClickEdit}
-          edit={props.edit}
+          itemsFunctions={props.itemsFunctions}
           {...item}
         />
       ))}
