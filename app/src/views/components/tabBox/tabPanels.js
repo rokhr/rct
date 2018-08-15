@@ -7,7 +7,12 @@ class TabPanels extends React.Component {
       <React.Fragment>
         <div className="app-tabPanels__panelList">
           {this.props.data.map((data, index) =>
-            <TabPanelItem index={index} tabContents={data.tabContents} selected={this.props.selected} />
+            <TabPanelItem 
+              key={index}
+              index={index}
+              tabContents={data.tabContents}
+              selected={this.props.selected}
+            />
           )}
         </div>
       </React.Fragment>
