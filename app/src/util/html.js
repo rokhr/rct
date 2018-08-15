@@ -2,9 +2,9 @@ import React from "react";
 
 const nl2br = (text) => {
   var regex = /(\n)/g
-  return text.split(regex).map(function (line) {
+  return text.split(regex).map(function (line, index) {
       if (line.match(regex)) {
-          return React.createElement('br')
+          return React.createElement('br', {key: index})
       }
       else {
           return line;
