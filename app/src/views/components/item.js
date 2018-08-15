@@ -12,6 +12,18 @@ class Items extends React.Component {
       }
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('item:componentWillReceiveProps', this.props === nextProps);
+    console.log('-----------------')
+    
+    const keys = Object.keys(nextProps);
+    keys.forEach((name) => {
+      console.log(name, nextProps[name] === this.props[name]);
+    });
+    console.log('///-----------------')
+  }
+  
   onChangeTitle(e) {
     this.setState({
       editData: Object.assign(this.state.editData, {
@@ -28,17 +40,29 @@ class Items extends React.Component {
     });
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    const diffPropsProperties = [
-      'title',
-      'description',
-      'isEditting'
-    ];
+  // shouldComponentUpdate (nextProps, nextState) {
+  //   console.log('shouldComponentUpdate', nextProps === this.props);
+  //   console.log('-----------------')
+    
+  //   const keys = Object.keys(nextProps);
+  //   keys.forEach((name) => {
+  //     console.log(name, nextProps[name] === this.props[name]);
+  //   });
+  //   console.log('-----------------')
 
-    return diffPropsProperties.some((name, index) => {
-      return nextProps[name] !== this.props[name]
-    }) || nextState !== this.state;
-  }
+  //   const diffPropsProperties = [
+  //     'title',
+  //     'description',
+  //     'isEditting'
+  //   ];
+
+  //   return diffPropsProperties.some((name, index) => {
+  //     return nextProps[name] !== this.props[name]
+  //   }) || nextState !== this.state;
+  //   // const originalShould = super.shouldComponentUpdate.call(this, nextProps, nextState);
+  //   // console.log(originalShould);
+  //   // return originalShould
+  // }
 
   render() {
     console.log('render_item', this.props.id);

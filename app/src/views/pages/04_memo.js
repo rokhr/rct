@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Items from "../components/items";
+import Testt from "../components/testt";
 import { getCopied, findIdOne, reduceOne } from "../../util/array";
 
 class Page extends PureComponent {
@@ -53,6 +54,19 @@ class Page extends PureComponent {
     });
   }
 
+  onClickTestButton(e) {
+    e.preventDefault();
+
+    // this.setState({
+    //   // 入力欄はリセットする
+    //   formData: {
+    //     title: '',
+    //     description: ''
+    //   }
+    // });
+
+  }
+
   deleteItem(id) {
     this.setState({
       items: reduceOne(this.state.items, (value) => {
@@ -94,6 +108,7 @@ class Page extends PureComponent {
   render() {
     return (
       <React.Fragment>
+        <Testt />
         <div className="additem">
           <div>
             <span>タイトル</span>
@@ -108,6 +123,8 @@ class Page extends PureComponent {
             </div>
           </div>
           <button onClick={(e) => this.onClickButton(e)}>新規追加</button>
+          <button onClick={(e) => this.onClickTestButton(e)}>test</button>
+
         </div>
         <Items data={this.state.items} isEditable={true} itemsFunctions={this.itemsFunctions} />
       </React.Fragment>
