@@ -14,14 +14,14 @@ class Items extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('item:componentWillReceiveProps', this.props === nextProps);
-    console.log('-----------------')
+    // console.log('item:componentWillReceiveProps', this.props === nextProps);
+    // console.log('-----------------')
     
-    const keys = Object.keys(nextProps);
-    keys.forEach((name) => {
-      console.log(name, nextProps[name] === this.props[name]);
-    });
-    console.log('///-----------------')
+    // const keys = Object.keys(nextProps);
+    // keys.forEach((name) => {
+    //   console.log(name, nextProps[name] === this.props[name]);
+    // });
+    // console.log('///-----------------')
   }
   
   onChangeTitle(e) {

@@ -57,6 +57,9 @@ class Page extends PureComponent {
   onClickTestButton(e) {
     e.preventDefault();
 
+    localStorage.setItem('items', JSON.stringify(this.state.items));
+    localStorage.setItem('key', this.state.key);
+
     // this.setState({
     //   // 入力欄はリセットする
     //   formData: {
@@ -108,6 +111,7 @@ class Page extends PureComponent {
   render() {
     return (
       <React.Fragment>
+                  <button onClick={(e) => this.onClickTestButton(e)}>保存</button>
         <Testt />
         <div className="additem">
           <div>
@@ -123,8 +127,6 @@ class Page extends PureComponent {
             </div>
           </div>
           <button onClick={(e) => this.onClickButton(e)}>新規追加</button>
-          <button onClick={(e) => this.onClickTestButton(e)}>test</button>
-
         </div>
         <Items data={this.state.items} isEditable={true} itemsFunctions={this.itemsFunctions} />
       </React.Fragment>
